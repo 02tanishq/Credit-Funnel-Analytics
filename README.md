@@ -181,18 +181,5 @@ Open your browser at `http://localhost:8501` to interact with the funnel waterfa
 
 ---
 
-## 7. Interview Readiness: The 5 Weakest Points & Defenses
-
-| Weakness / Limitation | Anticipated Tough Interviewer Question | Structured Candidate Defense (Bajaj Finance Context) |
-| :--- | :--- | :--- |
-| **1. Conflation of Approval & Funding** | *"You report an approval rate of 7.56%, but isn't that actually a disbursal rate? What about sanctioned applicants who dropped off before loan issuance?"* | "In Indian NBFC terminology, Stage 2 reflects *Disbursal Conversion* rather than *Sanction Conversion*. Lending Club records accepted applications only after contracts are funded. In an enterprise setting, I would log pre-sanction drop-offs to separate underwriting policy rejections from pricing/UX fallout." |
-| **2. Selection Bias in Bureau Scores** | *"67% of rejected applicants have null credit scores. Doesn't fitting a regression on bureau score create severe truncation bias?"* | "Lending Club implemented a sequential two-stage hurdle: applicants who failed pre-qualification knockouts (unserviceable DTI, zero self-reported income) were rejected before incurring bureau API fees. Rather than imputing fake bureau scores, we audited `has_risk_score` as an explicit indicator of passing the pre-screen and estimated our continuous scoring model strictly on the scored population (AUC = 0.935)." |
-| **3. Right-Censoring in Recent Cohorts** | *"Why did 2018 show a 1.79% default rate? Did underwriting quality dramatically improve?"* | "No, that is an artifact of loan age. 86.85% of 2018 contracts were still active (`Current`) at the snapshot date. Because 36-to-60 month personal loans peak in defaults between months 12 and 24, unseasoned cohorts appear deceptively healthy. We benchmarked credit policy strictly on mature 2013–2015 cohorts where >95% of contracts have closed." |
-| **4. Reject Inference Uncertainty** | *"How can you model expanding into rejected segments when you have zero performance history on rejected borrowers?"* | "This is the classic credit scoring 'reject inference' problem. Because counterfactual performance cannot be observed directly, we explicitly avoided single-point deterministic forecasts. Instead, our scenario simulator in `src/scenario.py` stress-tested the intervention with a +35% relative default surge (18.9% loss rate) in the pessimistic tier. The recommendation remains profitable only because high-tenure employment provides an anchoring proxy for income recovery." |
-| **5. Macroeconomic Regime Shifts** | *"Your data spans the 2008 crash through fintech expansion. How did you account for structural economic shifts?"* | "Credit standards shifted significantly over the 11-year timeline. We segmented all conversion and loss metrics by origination vintage year in `mart_cohort_vintage.csv`, ensuring policy comparisons are made within homogeneous macro and credit-cycle environments." |
-
----
-
-## 8. Author & Portfolio Context
-- **Role Target:** Product Analyst (Retail Asset Lending) at Indian NBFCs (Bajaj Finance, Tata Capital, Aditya Birla Finance).
-- **Core Competencies:** Funnel optimization, SQL/DuckDB data engineering, Wilson Score confidence intervals, econometric logistic modeling, portfolio vintage curves, and underwriting scenario sensitivity analysis.
+## 8. Author 
+- Tanishq Gupta
