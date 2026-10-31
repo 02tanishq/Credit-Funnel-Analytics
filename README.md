@@ -1,5 +1,4 @@
 # Lending Product Funnel & Approval Analysis
-**Portfolio Project: Retail Product Analyst & Credit Risk Data Engineer**  
 **Institutional Focus:** Indian Non-Banking Financial Companies (e.g., Bajaj Finance)  
 **Dataset:** 29,909,409 Lending Club Applications (2007–2018)  
 **License:** MIT
